@@ -2,8 +2,15 @@
 export default{
     data() {
         return {
-            title: "My banner title"
+            title: "My banner title",
+            image: "solar-flare.en.webp"
+        };
+    },
+    methods:{
+        getImagePath(imageName){
+            return new URL(`../assets/${imageName}`, import.meta.url).href; 
         }
+
     }
 }
 </script>
@@ -11,7 +18,7 @@ export default{
 <template>
     <div class="banner">
         <h2>{{ title }}</h2>
-        <img src="../assets/solar-flare.en.webp" alt="">
+        <img :src="getImagePath(image)" alt="">
 
     </div>
 </template>
